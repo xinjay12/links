@@ -4,69 +4,269 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>杰哥 Jayden ｜ 你的風險觀測隊友</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root { --bg: #ffffff; --text: #111; --sub: #555; --border: #f2f2f2; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; display: flex; justify-content: center; padding: 40px 20px; }
+        :root {
+            --bg: #ffffff;
+            --text-primary: #111111;
+            --text-secondary: #555555;
+            --border: #f2f2f2;
+            --accent: #000000;
+            --card-hover: #fafafa;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, "Noto Sans TC", sans-serif;
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
         .container { width: 100%; max-width: 440px; }
-        .header { text-align: center; margin-bottom: 30px; }
+
+        .header { text-align: center; margin-bottom: 32px; }
+        
         .avatar-circle {
-            width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px;
-            border: 2px solid var(--border); overflow: hidden; background: #333;
+            width: 100px; height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            border: 2px solid var(--border);
+            overflow: hidden;
+            background-color: #333;
             display: flex; align-items: center; justify-content: center;
-            color: #fff; font-size: 2rem; position: relative;
+            color: white; font-size: 2rem; font-weight: bold;
+            position: relative;
         }
-        .avatar-circle img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; }
-        .story { border-left: 4px solid #000; padding: 15px 20px; margin-bottom: 30px; background: #fafafa; font-size: 0.95rem; }
-        details { background: #fff; border: 1px solid var(--border); border-radius: 12px; margin-bottom: 10px; }
-        summary { padding: 18px; cursor: pointer; font-weight: 600; list-style: none; }
-        .content { padding: 0 18px 18px 18px; font-size: 0.9rem; color: #444; line-height: 1.8; }
-        .share-btn {
-            display: block; width: 100%; background: #000; color: #fff; padding: 18px;
-            border-radius: 14px; text-align: center; font-weight: 600; margin: 40px 0;
-            border: none; cursor: pointer; font-size: 1rem;
+        
+        .avatar-circle img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            position: absolute; top: 0; left: 0;
         }
-        .link-card { display: block; padding: 18px; border: 1px solid var(--border); border-radius: 14px; text-decoration: none; color: inherit; margin-bottom: 12px; font-weight: 600; }
-        .footer { text-align: center; font-size: 0.7rem; color: #bbb; margin-top: 40px; }
+
+        .header h1 { font-size: 1.4rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px; }
+        .header p.title { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 20px; }
+
+        .story-box {
+            text-align: left; background: #fff; border-left: 3px solid #000;
+            padding: 20px; margin-bottom: 32px; font-size: 0.95rem; color: #333;
+        }
+
+        .section-title {
+            font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.15em; color: #999; margin: 32px 0 12px 4px;
+        }
+
+        .value-details { margin-bottom: 32px; }
+        
+        details {
+            background: #fafafa;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 20px;
+            list-style: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::after { content: '+'; font-size: 1.2rem; color: #999; }
+        details[open] summary::after { content: '−'; }
+
+        .detail-content {
+            padding: 20px;
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            border-top: 1px solid #f2f2f2;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .detail-content p { margin-bottom: 16px; }
+
+        .case-disclaimer {
+            font-size: 0.75rem;
+            color: #999;
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px dashed #eee;
+            line-height: 1.5;
+        }
+
+        .check-table {
+            background: #fff; border: 1px solid #000; padding: 24px; border-radius: 16px; margin-bottom: 32px;
+        }
+        .check-table h2 { font-size: 1rem; font-weight: 600; margin-bottom: 16px; text-align: center; }
+        .check-item { margin-bottom: 16px; font-size: 0.85rem; border-bottom: 1px dashed #eee; padding-bottom: 12px; }
+        .check-item:last-child { border-bottom: none; }
+        .check-item strong { display: block; margin-bottom: 4px; color: #d4a373; }
+
+        .link-card {
+            display: flex; align-items: center;
+            padding: 18px; background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 14px; text-decoration: none;
+            color: inherit; margin-bottom: 12px;
+        }
+        .icon { font-size: 1.3rem; margin-right: 16px; width: 24px; text-align: center; }
+        .content { flex: 1; }
+        .content h3 { font-size: 0.95rem; font-weight: 600; }
+        .content p { font-size: 0.8rem; color: var(--text-secondary); }
+
+        .share-page-btn {
+            display: block;
+            width: 100%;
+            background-color: var(--accent);
+            color: #fff;
+            border: none;
+            padding: 18px;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 40px 0 10px 0;
+            text-align: center;
+        }
+
+        .disclaimer { font-size: 0.7rem; color: #999; margin: 24px 8px; line-height: 1.5; font-style: italic; }
+        footer { margin-top: 60px; text-align: center; font-size: 0.7rem; color: #bbb; letter-spacing: 0.05em; padding-bottom: 40px; }
+        .social-row { display: flex; justify-content: center; gap: 24px; margin-top: 32px; }
+        .social-row a { color: #000; text-decoration: none; font-size: 0.85rem; font-weight: 500; border-bottom: 1px solid #ddd; }
     </style>
 </head>
 <body>
+
 <div class="container">
-    <div class="header">
-        <div class="avatar-circle">杰<img src="avatar.jpg" alt="Jayden" onerror="this.style.opacity='0'"></div>
+    <header class="header">
+        <div class="avatar-circle">
+            杰
+            <img src="avatar.jpg" alt="Jayden" onerror="this.style.opacity='0'">
+        </div>
         <h1>杰哥 Jayden</h1>
-        <p style="color:#666; font-size:0.9rem;">全球人壽區經理 ｜ 現代風險觀測者</p>
-    </div>
-    <div class="story">
+        <p class="title">全球人壽區經理 ｜ 現代風險觀測者</p>
+    </header>
+
+    <div class="story-box">
         以前在講台教國語文，現在在壽險業幫大家講白話。我深信，最好的風險規劃不應該是索取，而是「賦予讀者看清未來的能力」。
     </div>
-    <details>
-        <summary>📜 傳承筆記：1,690 萬與被養大的心</summary>
-        <div class="content">曾有客戶規劃贈與子女節稅，卻擔心養成揮霍習慣。我們透過機制優化 1,690 萬稅務空間，同時確保財富穩定傳承。傳承不只是留錢，更是留住「選擇權」。</div>
-    </details>
-    <details>
-        <summary>☕ 退休白皮書：5 萬元的終身底氣</summary>
-        <div class="content">我設計「槓鈴組合」：穩定年金（每月 5 萬入帳）搭配低風險投資。確保最低生存品質後，才有勇氣追求高品質人生。</div>
-    </details>
-    <a href="https://substack.com/@xinjay12" class="link-card">📖 杰哥的風險筆記 (Substack)</a>
-    <a href="https://line.me/ti/p/tlWQNjThq9" class="link-card">🔍 保障地圖白話翻譯 (LINE)</a>
-    <button id="shareBtn" class="share-btn">🔗 分享此頁面 (含限時動態)</button>
-    <div class="footer">© 2026 JAYDEN RISK NOTES.</div>
+
+    <div class="section-title">價值筆記 (Deep Dive Stories)</div>
+    <div class="value-details">
+        <details>
+            <summary>📜 傳承筆記：1,690 萬與「被養大的心」</summary>
+            <div class="detail-content">
+                <p>曾有一位客戶，原本規劃每年贈與子女 200 萬元來降低未來稅負，卻在過程中發現孩子們開始頻繁討論名車與房產。</p>
+                <p>他開始擔心辛苦積累的財富反而養成揮霍的習慣，甚至影響家庭和諧。我們重新審視架構，最終不僅優化了預估 1,690 萬元的遺產稅空間，更透過機制確保了財富的穩定傳承。</p>
+                <p>我想分享的是：<strong>傳承不只是留錢，更是留住「選擇權」。</strong></p>
+                <div class="case-disclaimer">
+                    ※ 本案例係依據特定個案之實務經驗編寫，僅供風險管理邏輯之參考與經驗分享，並不代表保證具備相同之節稅效果。
+                </div>
+            </div>
+        </details>
+
+        <details>
+            <summary>☕ 退休白皮書：5 萬元的終身底氣</summary>
+            <div class="detail-content">
+                <p>單純靠勞保或儲蓄，在通膨面前是脆弱的。我為客戶設計的退休藍圖是「槓鈴組合」。</p>
+                <p>左手是穩定的年金（確保每個月有 5 萬元雷打不動地入帳），右手則是低風險的投資增值。</p>
+                <p>當你確保了「最低生存品質」，你才有勇氣去追求更有品質的退休人生。</p>
+            </div>
+        </details>
+
+        <details>
+            <summary>💡 風險誤區：你真的買對了嗎？</summary>
+            <div class="detail-content">
+                <p><strong>1. 保險不是有買就好：</strong> 很多人買的是「安心感」，而非「覆蓋力」。</p>
+                <p><strong>2. 定期 vs 終身：</strong> 定期險是為了在責任最重時加槓桿；終身險則是為了建立底層防禦。</p>
+                <p><strong>3. 為何壽險最重要：</strong> 它是家庭的最後一道防線。它賠的不只是死亡，更包含「完全失能」。</p>
+            </div>
+        </details>
+    </div>
+
+    <div class="section-title">工具 (Tools)</div>
+    <div class="check-table">
+        <h2>🛡️ 三分鐘保障邏輯校對</h2>
+        <div class="check-item">
+            <strong>死亡保障（壽險）</strong>
+            額度是否足以覆蓋「剩餘房貸」＋「家庭未來 10 年的生活費」？
+        </div>
+        <div class="check-item">
+            <strong>完全失能保障</strong>
+            若失去工作能力，理賠金是否能完全覆蓋現有的「每月薪資」？
+        </div>
+        <div class="check-item">
+            <strong>豁免功能</strong>
+            你的保單是否包含「豁免保費」，確保在最難撐時保障依然生效？
+        </div>
+    </div>
+
+    <div class="section-title">深度內容 (Deep Reading)</div>
+    <a href="https://substack.com/@xinjay12" target="_blank" class="link-card">
+        <div class="icon">📖</div>
+        <div class="content">
+            <h3>杰哥的風險筆記</h3>
+            <p>每週三分鐘，升級你的風險抗性與邏輯</p>
+        </div>
+    </a>
+
+    <div class="section-title">如果你想聊聊邏輯 (Connect)</div>
+    <a href="https://line.me/ti/p/tlWQNjThq9" target="_blank" class="link-card">
+        <div class="icon">🔍</div>
+        <div class="content">
+            <h3>保障地圖的白話翻譯</h3>
+            <p>陪你讀懂保單，校對出你沒看到的缺口</p>
+        </div>
+    </a>
+
+    <button id="shareBtn" class="share-page-btn">🔗 分享此頁面給好友 (含限時動態)</button>
+
+    <div class="social-row">
+        <a href="https://www.threads.net/@jaydenlin12" target="_blank">Threads</a>
+        <a href="https://www.facebook.com/jaydenlin0612?locale=zh_TW" target="_blank">Facebook</a>
+        <a href="https://line.me/ti/p/tlWQNjThq9" target="_blank">Line</a>
+    </div>
+
+    <footer>
+        © 2026 JAYDEN RISK NOTES. <br>
+        Sincere. Empathetic. Logical. Flexible.
+    </footer>
 </div>
+
 <script>
-    const btn = document.getElementById('shareBtn');
-    btn.onclick = async () => {
+    const shareBtn = document.getElementById('shareBtn');
+    shareBtn.addEventListener('click', async () => {
         if (navigator.share) {
             try {
-                await navigator.share({ title: '杰哥 Jayden', text: '分享杰哥的風險筆記與保障校對表', url: window.location.href });
-            } catch (e) {}
+                await navigator.share({
+                    title: '杰哥 Jayden ｜ 你的風險觀測隊友',
+                    text: '這是我為你準備的風險筆記與保障校對工具',
+                    url: window.location.href
+                });
+            } catch (err) { console.log('Share canceled'); }
         } else {
-            const el = document.createElement('textarea'); el.value = window.location.href;
-            document.body.appendChild(el); el.select(); document.execCommand('copy');
-            document.body.removeChild(el); alert('連結已複製！');
+            const dummy = document.createElement('input');
+            document.body.appendChild(dummy);
+            dummy.value = window.location.href;
+            dummy.select();
+            document.execCommand('copy');
+            document.body.removeChild(dummy);
+            alert('連結已複製！');
         }
-    };
+    });
 </script>
+
 </body>
 </html>
