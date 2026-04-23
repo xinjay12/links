@@ -53,15 +53,53 @@
             letter-spacing: 0.15em; color: #999; margin: 32px 0 12px 4px;
         }
 
-        .value-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 32px;
+        .value-details { margin-bottom: 32px; }
+        
+        details {
+            background: #fafafa;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
-        .value-card {
-            background: #fafafa; padding: 16px; border-radius: 12px; text-align: left;
-            border: 1px solid var(--border); text-decoration: none; color: inherit;
+
+        summary {
+            padding: 20px;
+            list-style: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .value-card span { display: block; font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; color: #000; }
-        .value-card p { font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4; }
+
+        summary::-webkit-details-marker { display: none; }
+        
+        summary::after {
+            content: '+';
+            font-size: 1.2rem;
+            color: #999;
+        }
+
+        details[open] summary::after {
+            content: '−';
+        }
+
+        .detail-content {
+            padding: 0 20px 20px 20px;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            border-top: 1px solid #f2f2f2;
+            padding-top: 15px;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         .check-table {
             background: #fff; border: 1px solid #000; padding: 24px; border-radius: 16px; margin-bottom: 32px;
@@ -70,9 +108,6 @@
         .check-item { margin-bottom: 16px; font-size: 0.85rem; border-bottom: 1px dashed #eee; padding-bottom: 12px; }
         .check-item:last-child { border-bottom: none; }
         .check-item strong { display: block; margin-bottom: 4px; color: #d4a373; }
-
-        .pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
-        .pill { background: #f5f5f5; padding: 6px 12px; border-radius: 20px; font-size: 0.75rem; color: #666; }
 
         .link-card {
             display: flex; align-items: center;
@@ -104,27 +139,35 @@
     </header>
 
     <div class="story-box">
-        以前在講台教國語文，現在在壽險業幫大家講白話。我深信，最好的風險規劃不應該是索取，而是**賦予讀者看清未來的能力**。
+        以前在講台教國語文，現在在壽險業幫大家講白話。我深信，最好的風險規劃不應該是索取，而是「賦予讀者看清未來的能力」。
     </div>
 
-    <div class="section-title">你可以從這帶走的價值 (Insights)</div>
-    <div class="value-grid">
-        <div class="value-card">
-            <span>傳承筆記</span>
-            <p>從 1,690 萬案例中提取的 3 個校對重點。</p>
-        </div>
-        <div class="value-card">
-            <span>退休白皮書</span>
-            <p>如何建構每月 5 萬且不中斷的被動現金流。</p>
-        </div>
-        <div class="value-card">
-            <span>風險誤區</span>
-            <p>培訓 300 位夥伴時，最常被問到的三個邏輯漏洞。</p>
-        </div>
-        <div class="value-card">
-            <span>十億承諾</span>
-            <p>在 2034 年前，為客戶守住十億元的理賠安全邊界。</p>
-        </div>
+    <div class="section-title">價值筆記 (Deep Dive Stories)</div>
+    <div class="value-details">
+        
+        <details>
+            <summary>📜 傳承筆記：1,690 萬與「被養大的心」</summary>
+            <div class="detail-content">
+                曾有一位客戶，原本規劃每年贈與子女 200 萬元來降低稅負，卻在過程中發現孩子們開始頻繁討論名車與房產，擔心辛苦積累的財富反而養成揮霍的習慣，甚至影響家庭和諧。我們重新審視架構，最終不僅優化了預估 1,690 萬元的遺產稅空間，更透過機制確保了財富的穩定傳承。我想分享的是：傳承不只是留錢，更是留住「選擇權」。(本案例係依據特定個案之實務經驗編寫 ，僅供風險管理邏輯之參考與經驗分享，並不代表保證具備相同之節稅效果 。任何稅務規劃均須視個案具體情況而定，且須符合法規及「實質課稅原則」；建議讀者在採取任何行動前，務必諮詢專業會計師或法律顧問 。)
+            </div>
+        </details>
+
+        <details>
+            <summary>☕ 退休白皮書：5 萬元的終身底氣</summary>
+            <div class="detail-content">
+                單純靠勞保或儲蓄，在通膨面前是脆弱的。我為客戶設計的退休藍圖是「槓鈴組合」：左手是穩定的年金（確保每個月有 5 萬元雷打不動地入帳），右手則是低風險的投資增值。當你確保了「最低生存品質」，你才有勇氣去追求更有品質的退休人生。
+            </div>
+        </details>
+
+        <details>
+            <summary>💡 風險誤區：你真的買對了嗎？</summary>
+            <div class="detail-content">
+                <p style="margin-bottom: 10px;"><strong>1. 保險不是有買就好：</strong> 很多人買的是「安心感」，而非「覆蓋力」。額度不足的保單，只是在浪費保費。</p>
+                <p style="margin-bottom: 10px;"><strong>2. 定期 vs 終身：</strong> 兩者不是敵對的。定期險是為了在責任最重時加槓桿；終身險則是為了建立底層防禦。你該配置的是「組合」，而非單一商品。</p>
+                <p><strong>3. 為何壽險最重要：</strong> 它是家庭的最後一道防線。它賠的不只是死亡，更包含「完全失能」。因為對一個家庭來說，活著但無法工作所產生的經濟黑洞，往往比離開更深、更痛。</p>
+            </div>
+        </details>
+
     </div>
 
     <div class="check-table">
@@ -155,14 +198,7 @@
         </p>
     </div>
 
-    <div class="section-title">邏輯之外的生活 (Personal)</div>
-    <div class="pills">
-        <span class="pill">🦎 微笑守宮飼主</span>
-        <span class="pill">⛳ 高爾夫練習中</span>
-        <span class="pill">🏴‍☠️ One Piece 忠實讀者</span>
-    </div>
-
-    <div class="section-title">如果你想聊聊邏輯 (Connect)</div>
+    <div class="section-title">這裡是我的深度文章與Line連結 (Connect)</div>
     <a href="https://substack.com/@xinjay12" target="_blank" class="link-card">
         <div class="icon">📖</div>
         <div class="content">
@@ -180,7 +216,7 @@
     </a>
 
     <p class="disclaimer">
-        * 註：實務紀錄為案例分享，不代表保證。稅務規劃須視個案情況而定，且須符合實質課稅原則，建議與專業會計師共同研討。
+        * 註：實務紀錄為過往服務案例分享，不代表保證。稅務規劃須視個案情況而定，且須符合實質課稅原則，建議與專業會計師共同研討。
     </p>
 
     <div class="social-row">
