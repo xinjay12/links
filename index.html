@@ -8,9 +8,9 @@
     <style>
         :root {
             --bg: #ffffff;
-            --text-primary: #000000;
+            --text-primary: #111111;
             --text-secondary: #555555;
-            --border: #f0f0f0;
+            --border: #f2f2f2;
             --accent: #000000;
             --card-hover: #fafafa;
         }
@@ -30,24 +30,38 @@
         .container { width: 100%; max-width: 440px; }
 
         /* Profile Header */
-        .header { text-align: center; margin-bottom: 40px; }
+        .header { text-align: center; margin-bottom: 32px; }
         
         .avatar {
-            width: 88px; height: 88px;
-            border-radius: 50%;
-            background: #000;
-            color: #fff;
+            width: 80px; height: 80px;
+            border-radius: 50%; background: #000; color: #fff;
             margin: 0 auto 16px;
             display: flex; align-items: center; justify-content: center;
-            font-weight: 600; font-size: 1.5rem;
+            font-weight: 600; font-size: 1.4rem;
             border: 2px solid var(--border);
         }
 
         .header h1 { font-size: 1.4rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px; }
-        .header p.title { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 16px; }
-        .header p.bio { font-size: 0.95rem; font-weight: 400; line-height: 1.6; color: var(--text-primary); max-width: 320px; margin: 0 auto; }
+        .header p.title { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 20px; }
 
-        /* Categorized Link Blocks */
+        /* Story Section */
+        .story-box {
+            text-align: left; background: #fff; border-left: 3px solid #000;
+            padding: 20px; margin-bottom: 32px; font-size: 0.95rem; color: #333;
+        }
+
+        /* Achievements Row */
+        .stats-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 32px;
+        }
+        .stat-card {
+            background: #fafafa; padding: 16px; border-radius: 12px; text-align: center;
+            border: 1px solid var(--border);
+        }
+        .stat-card span { display: block; font-size: 1.1rem; font-weight: 600; margin-bottom: 4px; }
+        .stat-card small { font-size: 0.75rem; color: var(--text-secondary); }
+
+        /* Links */
         .section-title {
             font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
             letter-spacing: 0.15em; color: #999; margin: 32px 0 12px 4px;
@@ -63,32 +77,22 @@
         }
 
         .link-card:active { transform: scale(0.98); background: var(--card-hover); border-color: #000; }
-
-        .icon { font-size: 1.4rem; margin-right: 16px; width: 24px; text-align: center; }
-        
+        .icon { font-size: 1.3rem; margin-right: 16px; width: 24px; text-align: center; }
         .content { flex: 1; }
         .content h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 2px; }
         .content p { font-size: 0.8rem; color: var(--text-secondary); font-weight: 300; }
 
-        .arrow { font-size: 0.8rem; color: #ccc; }
-
-        /* Identity Hook */
-        .identity-note {
-            background: #fdfdfd; border: 1px dashed #ddd;
-            padding: 16px; border-radius: 12px; margin-top: 40px;
-            font-size: 0.85rem; color: var(--text-secondary); text-align: center;
-            line-height: 1.6;
+        /* Disclaimer */
+        .disclaimer {
+            font-size: 0.75rem; color: #999; margin: 24px 8px;
+            line-height: 1.5; font-style: italic;
         }
 
         /* Footer */
-        footer { margin-top: 60px; text-align: center; font-size: 0.7rem; color: #bbb; letter-spacing: 0.1em; }
+        footer { margin-top: 60px; text-align: center; font-size: 0.7rem; color: #bbb; letter-spacing: 0.05em; }
 
-        /* Social Icons */
         .social-row { display: flex; justify-content: center; gap: 24px; margin-top: 32px; }
-        .social-row a { 
-            color: #000; text-decoration: none; font-size: 0.85rem; 
-            font-weight: 500; border-bottom: 1px solid #ddd; padding-bottom: 2px;
-        }
+        .social-row a { color: #000; text-decoration: none; font-size: 0.85rem; font-weight: 500; border-bottom: 1px solid #ddd; }
     </style>
 </head>
 <body>
@@ -98,50 +102,68 @@
         <div class="avatar">杰</div>
         <h1>杰哥 Jayden</h1>
         <p class="title">全球人壽區經理 ｜ 現代風險觀測者</p>
-        <p class="bio">用國文老師的邏輯，拆解金融世界的複雜。協助你建立抗脆弱的財務系統。</p>
     </header>
 
-    <div class="section-title">Deep Dive Content</div>
+    <div class="story-box">
+        以前在講台教國語文，現在在金控幫大家講白話。我發現，最好的風險規劃就像一篇好文章：結構要嚴謹，更要能傳達對家人的愛。
+    </div>
+
+    <div class="section-title">實務紀錄 (Past Performance)</div>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <span>1,690 萬+</span>
+            <small>協助優化稅務空間</small>
+        </div>
+        <div class="stat-card">
+            <span>50,000 /月</span>
+            <small>建構終身俸保障</small>
+        </div>
+        <div class="stat-card">
+            <span>300 位+</span>
+            <small>培訓專業業務夥伴</small>
+        </div>
+        <div class="stat-card">
+            <span>10 億元</span>
+            <small>2034 客戶理賠願景</small>
+        </div>
+    </div>
+
+    <div class="section-title">核心服務 (Services)</div>
     <a href="https://substack.com/@xinjay12" target="_blank" class="link-card">
         <div class="icon">📖</div>
         <div class="content">
             <h3>杰哥的風險筆記</h3>
-            <p>每週三分鐘，升級你的風險抗性與思考邏輯</p>
+            <p>每週三分鐘，升級你的風險抗性與邏輯</p>
         </div>
-        <div class="arrow">→</div>
     </a>
 
-    <div class="section-title">Professional Service</div>
     <a href="https://line.me/ti/p/tlWQNjThq9" target="_blank" class="link-card">
         <div class="icon">🔍</div>
         <div class="content">
-            <h3>邏輯風險健檢</h3>
-            <p>排除人情干擾，只針對保障缺口進行精準審核</p>
+            <h3>保障地圖的白話翻譯</h3>
+            <p>校對目前保障缺口，只留真正需要的</p>
         </div>
-        <div class="arrow">→</div>
     </a>
+
     <a href="https://line.me/ti/p/tlWQNjThq9" target="_blank" class="link-card">
         <div class="icon">⚖️</div>
         <div class="content">
-            <h3>槓鈴策略配置諮詢</h3>
-            <p>在保證安全的基礎上，極大化你的長線增長</p>
+            <h3>資產的攻守防禦架構</h3>
+            <p>針對有產家庭設計，平衡安全與增長</p>
         </div>
-        <div class="arrow">→</div>
     </a>
 
-    <div class="section-title">Join My Team</div>
     <a href="https://line.me/ti/p/tlWQNjThq9" target="_blank" class="link-card">
         <div class="icon">🚀</div>
         <div class="content">
-            <h3>邏輯業務力：品牌增員計劃</h3>
+            <h3>品牌增員：邏輯業務力</h3>
             <p>拒絕傳統推銷，用專業觀點經營個人品牌</p>
         </div>
-        <div class="arrow">→</div>
     </a>
 
-    <div class="identity-note">
-        從 <strong>國文老師</strong> 到 <strong>金控主管</strong>，<br>我發現最有效的風險管理，往往來自於清晰的邏輯判斷。
-    </div>
+    <p class="disclaimer">
+        * 註：實務紀錄為過往服務案例分享，不代表保證节税或投資獲利。稅務規劃須視個案情況而定，且須符合實質課稅原則，建議與專業會計師共同研討。
+    </p>
 
     <div class="social-row">
         <a href="https://www.threads.net/@jaydenlin12" target="_blank">Threads</a>
@@ -151,7 +173,7 @@
 
     <footer>
         © 2026 JAYDEN RISK NOTES. <br>
-        SYSTEMATIC. LOGICAL. ANTI-FRAGILE.
+        Sincere. Empathetic. Logical. Flexible.
     </footer>
 </div>
 
