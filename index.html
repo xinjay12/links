@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>杰哥 Jayden ｜ 一個做保險的</title>
+    <title>杰哥 Jayden ｜ 你的風險觀測隊友</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -44,29 +44,42 @@
         .header h1 { font-size: 1.4rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px; }
         .header p.title { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 20px; }
 
-        /* Story Section */
+        /* Story Section - Giving Focus */
         .story-box {
             text-align: left; background: #fff; border-left: 3px solid #000;
             padding: 20px; margin-bottom: 32px; font-size: 0.95rem; color: #333;
         }
 
-        /* Achievements Row */
-        .stats-grid {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 32px;
-        }
-        .stat-card {
-            background: #fafafa; padding: 16px; border-radius: 12px; text-align: center;
-            border: 1px solid var(--border);
-        }
-        .stat-card span { display: block; font-size: 1.1rem; font-weight: 600; margin-bottom: 4px; }
-        .stat-card small { font-size: 0.75rem; color: var(--text-secondary); }
-
-        /* Links */
+        /* Value Notes - Instead of Stats */
         .section-title {
             font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
             letter-spacing: 0.15em; color: #999; margin: 32px 0 12px 4px;
         }
 
+        .value-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 32px;
+        }
+        .value-card {
+            background: #fafafa; padding: 16px; border-radius: 12px; text-align: left;
+            border: 1px solid var(--border); text-decoration: none; color: inherit;
+        }
+        .value-card span { display: block; font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; color: #000; }
+        .value-card p { font-size: 0.75rem; color: var(--text-secondary); line-height: 1.4; }
+
+        /* Proofreading Table */
+        .check-table {
+            background: #fff; border: 1px solid #000; padding: 24px; border-radius: 16px; margin-bottom: 32px;
+        }
+        .check-table h2 { font-size: 1rem; font-weight: 600; margin-bottom: 16px; text-align: center; }
+        .check-item { margin-bottom: 16px; font-size: 0.85rem; border-bottom: 1px dashed #eee; padding-bottom: 12px; }
+        .check-item:last-child { border-bottom: none; }
+        .check-item strong { display: block; margin-bottom: 4px; color: #d4a373; }
+
+        /* Personal Section */
+        .pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px; }
+        .pill { background: #f5f5f5; padding: 6px 12px; border-radius: 20px; font-size: 0.75rem; color: #666; }
+
+        /* Links */
         .link-card {
             display: flex; align-items: center;
             padding: 18px; background: #fff;
@@ -75,22 +88,14 @@
             color: inherit; margin-bottom: 12px;
             transition: all 0.3s ease;
         }
-
         .link-card:active { transform: scale(0.98); background: var(--card-hover); border-color: #000; }
         .icon { font-size: 1.3rem; margin-right: 16px; width: 24px; text-align: center; }
         .content { flex: 1; }
-        .content h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 2px; }
-        .content p { font-size: 0.8rem; color: var(--text-secondary); font-weight: 300; }
+        .content h3 { font-size: 0.95rem; font-weight: 600; }
+        .content p { font-size: 0.8rem; color: var(--text-secondary); }
 
-        /* Disclaimer */
-        .disclaimer {
-            font-size: 0.75rem; color: #999; margin: 24px 8px;
-            line-height: 1.5; font-style: italic;
-        }
-
-        /* Footer */
+        .disclaimer { font-size: 0.7rem; color: #999; margin: 24px 8px; line-height: 1.5; font-style: italic; }
         footer { margin-top: 60px; text-align: center; font-size: 0.7rem; color: #bbb; letter-spacing: 0.05em; }
-
         .social-row { display: flex; justify-content: center; gap: 24px; margin-top: 32px; }
         .social-row a { color: #000; text-decoration: none; font-size: 0.85rem; font-weight: 500; border-bottom: 1px solid #ddd; }
     </style>
@@ -105,30 +110,66 @@
     </header>
 
     <div class="story-box">
-        以前在講台教國文課，現在在壽險業幫大家講白話。我發現，最好的風險規劃就像一篇好文章：結構要嚴謹，更要能傳達對家人的愛。
+        以前在講台教國語文，現在在金控幫大家講白話。我深信，最好的風險規劃不應該是索取，而是**賦予讀者看清未來的能力**。
     </div>
 
-    <div class="section-title">實務紀錄 (Past Performance)</div>
-    <div class="stats-grid">
-        <div class="stat-card">
-            <span>1,690 萬+</span>
-            <small>協助優化稅務空間</small>
+    <div class="section-title">你可以從這帶走的價值 (Insights)</div>
+    <div class="value-grid">
+        <div class="value-card">
+            <span>傳承筆記</span>
+            <p>從 1,690 萬案例中提取的 3 個校對重點 。</p>
         </div>
-        <div class="stat-card">
-            <span>50,000 /月</span>
-            <small>建構終身俸保障</small>
+        <div class="value-card">
+            <span>退休白皮書</span>
+            <p>如何建構每月 5 萬且不中斷的被動現金流 [cite: 2, 6]。</p>
         </div>
-        <div class="stat-card">
-            <span>300 位+</span>
-            <small>培訓專業業務夥伴</small>
+        <div class="value-card">
+            <span>風險誤區</span>
+            <p>培訓 300 位夥伴時，最常被問到的三個邏輯漏洞 [cite: 2, 6]。</p>
         </div>
-        <div class="stat-card">
-            <span>10 億元</span>
-            <small>2034 客戶理賠願景</small>
+        <div class="value-card">
+            <span>十億承諾</span>
+            <p>在 2034 年前，為客戶守住十億元的理賠安全邊界 。</p>
         </div>
     </div>
 
-    <div class="section-title">核心服務 (Services)</div>
+    <div class="check-table">
+        <h2>🛡️ 三分鐘保障邏輯校對</h2>
+        
+        <div class="check-item">
+            <strong>死亡保障（壽險）</strong>
+            額度是否足以覆蓋「剩餘房貸」＋「家庭未來 10 年的生活費」？ 
+        </div>
+
+        <div class="check-item">
+            <strong>完全失能保障 (1)</strong>
+            若失去工作能力，月領理賠金是否能完全覆蓋現有的「每月薪資」？ [cite: 2, 5]
+        </div>
+
+        <div class="check-item">
+            <strong>完全失能保障 (2)</strong>
+            一次性理賠金是否足以支付首年的「醫療輔具」與「環境改造」費用？ 
+        </div>
+
+        <div class="check-item">
+            <strong>豁免功能</strong>
+            你的保單是否包含「豁免保費」，確保在最難撐時保障依然生效？ 
+        </div>
+        
+        <p style="font-size: 0.7rem; color: #999; text-align: center; margin-top: 10px;">
+            ※ 如果以上有任何一項不確定，建議重新審視保障架構。
+        </p>
+    </div>
+
+    <div class="section-title">邏輯之外的生活 (Personal)</div>
+    <div class="pills">
+        <span class="pill">🦎 微笑守宮飼主</span>
+        <span class="pill">⛳ 高爾夫練習中</span>
+        <span class="pill">📔 品格教育志工</span>
+        <span class="pill">🏴‍☠️ One Piece 忠實讀者</span>
+    </div>
+
+    <div class="section-title">如果你想聊聊邏輯 (Connect)</div>
     <a href="https://substack.com/@xinjay12" target="_blank" class="link-card">
         <div class="icon">📖</div>
         <div class="content">
@@ -141,28 +182,12 @@
         <div class="icon">🔍</div>
         <div class="content">
             <h3>保障地圖的白話翻譯</h3>
-            <p>校對目前保障缺口，只留真正需要的</p>
-        </div>
-    </a>
-
-    <a href="https://line.me/ti/p/tlWQNjThq9" target="_blank" class="link-card">
-        <div class="icon">⚖️</div>
-        <div class="content">
-            <h3>資產的攻守防禦架構</h3>
-            <p>針對有產家庭設計，平衡安全與增長</p>
-        </div>
-    </a>
-
-    <a href="https://line.me/ti/p/tlWQNjThq9" target="_blank" class="link-card">
-        <div class="icon">🚀</div>
-        <div class="content">
-            <h3>品牌增員：邏輯業務力</h3>
-            <p>拒絕傳統推銷，用專業觀點經營個人品牌</p>
+            <p>陪你讀懂保單，校對出你沒看到的缺口</p>
         </div>
     </a>
 
     <p class="disclaimer">
-        * 註：實務紀錄為過往服務案例分享，不代表保證节税或投資獲利。稅務規劃須視個案情況而定，且須符合實質課稅原則，建議與專業會計師共同研討。
+        * 註：實務紀錄為案例分享，不代表保證。稅務規劃須視個案情況而定，且須符合實質課稅原則，建議與專業會計師共同研討。
     </p>
 
     <div class="social-row">
@@ -173,7 +198,7 @@
 
     <footer>
         © 2026 JAYDEN RISK NOTES. <br>
-        Sincere. Empathetic. Logical. Flexible.
+        Sincere. Empathetic. Logical. Flexible. 
     </footer>
 </div>
 
