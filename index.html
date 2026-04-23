@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>杰哥 Jayden ｜ 你的風險觀測隊友</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #ffffff; --text: #111; --sub: #555; --border: #f2f2f2; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; display: flex; justify-content: center; padding: 40px 20px; }
+        .container { width: 100%; max-width: 440px; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .avatar-circle {
+            width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 15px;
+            border: 2px solid var(--border); overflow: hidden; background: #333;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 2rem; position: relative;
+        }
+        .avatar-circle img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; }
+        .story { border-left: 4px solid #000; padding: 15px 20px; margin-bottom: 30px; background: #fafafa; font-size: 0.95rem; }
+        details { background: #fff; border: 1px solid var(--border); border-radius: 12px; margin-bottom: 10px; }
+        summary { padding: 18px; cursor: pointer; font-weight: 600; list-style: none; }
+        .content { padding: 0 18px 18px 18px; font-size: 0.9rem; color: #444; line-height: 1.8; }
+        .share-btn {
+            display: block; width: 100%; background: #000; color: #fff; padding: 18px;
+            border-radius: 14px; text-align: center; font-weight: 600; margin: 40px 0;
+            border: none; cursor: pointer; font-size: 1rem;
+        }
+        .link-card { display: block; padding: 18px; border: 1px solid var(--border); border-radius: 14px; text-decoration: none; color: inherit; margin-bottom: 12px; font-weight: 600; }
+        .footer { text-align: center; font-size: 0.7rem; color: #bbb; margin-top: 40px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="avatar-circle">杰<img src="avatar.jpg" alt="Jayden" onerror="this.style.opacity='0'"></div>
+        <h1>杰哥 Jayden</h1>
+        <p style="color:#666; font-size:0.9rem;">全球人壽區經理 ｜ 現代風險觀測者</p>
+    </div>
+    <div class="story">
+        以前在講台教國語文，現在在壽險業幫大家講白話。我深信，最好的風險規劃不應該是索取，而是「賦予讀者看清未來的能力」。
+    </div>
+    <details>
+        <summary>📜 傳承筆記：1,690 萬與被養大的心</summary>
+        <div class="content">曾有客戶規劃贈與子女節稅，卻擔心養成揮霍習慣。我們透過機制優化 1,690 萬稅務空間，同時確保財富穩定傳承。傳承不只是留錢，更是留住「選擇權」。</div>
+    </details>
+    <details>
+        <summary>☕ 退休白皮書：5 萬元的終身底氣</summary>
+        <div class="content">我設計「槓鈴組合」：穩定年金（每月 5 萬入帳）搭配低風險投資。確保最低生存品質後，才有勇氣追求高品質人生。</div>
+    </details>
+    <a href="https://substack.com/@xinjay12" class="link-card">📖 杰哥的風險筆記 (Substack)</a>
+    <a href="https://line.me/ti/p/tlWQNjThq9" class="link-card">🔍 保障地圖白話翻譯 (LINE)</a>
+    <button id="shareBtn" class="share-btn">🔗 分享此頁面 (含限時動態)</button>
+    <div class="footer">© 2026 JAYDEN RISK NOTES.</div>
+</div>
+<script>
+    const btn = document.getElementById('shareBtn');
+    btn.onclick = async () => {
+        if (navigator.share) {
+            try {
+                await navigator.share({ title: '杰哥 Jayden', text: '分享杰哥的風險筆記與保障校對表', url: window.location.href });
+            } catch (e) {}
+        } else {
+            const el = document.createElement('textarea'); el.value = window.location.href;
+            document.body.appendChild(el); el.select(); document.execCommand('copy');
+            document.body.removeChild(el); alert('連結已複製！');
+        }
+    };
+</script>
+</body>
+</html>
