@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>杰哥 Jayden ｜ 你的風險觀測隊友</title>
+    <title>杰哥 Jayden ｜ 風險規劃顧問</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -13,6 +13,7 @@
             --border: #f2f2f2;
             --accent: #000000;
             --card-hover: #fafafa;
+            --line-green: #06c755;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -29,8 +30,8 @@
 
         .container { width: 100%; max-width: 440px; }
 
-        .header { text-align: center; margin-bottom: 32px; }
-        
+        .header { text-align: center; margin-bottom: 28px; }
+
         .avatar-circle {
             width: 100px; height: 100px;
             border-radius: 50%;
@@ -42,7 +43,7 @@
             color: white; font-size: 2rem; font-weight: bold;
             position: relative;
         }
-        
+
         .avatar-circle img {
             width: 100%; height: 100%;
             object-fit: cover;
@@ -50,20 +51,96 @@
         }
 
         .header h1 { font-size: 1.4rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px; }
-        .header p.title { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 20px; }
+        .header p.title { font-size: 0.9rem; color: var(--text-secondary); }
 
-        .story-box {
-            text-align: left; background: #fff; border-left: 3px solid #000;
-            padding: 20px; margin-bottom: 32px; font-size: 0.95rem; color: #333;
+        /* 主文案 */
+        .hero {
+            text-align: center;
+            padding: 28px 0;
         }
 
+        .hero h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        /* Line 主 CTA */
+        .cta-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--line-green);
+            color: #fff;
+            text-decoration: none;
+            padding: 18px 24px;
+            border-radius: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            box-shadow: 0 4px 20px rgba(6,199,85,0.2);
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        .cta-line:hover { opacity: 0.92; transform: translateY(-1px); }
+        .cta-line:active { transform: translateY(0); }
+
+        .cta-line-icon { width: 22px; height: 22px; flex-shrink: 0; }
+
+        .cta-sub {
+            text-align: center;
+            font-size: 0.78rem;
+            color: #999;
+            margin-bottom: 40px;
+        }
+
+        /* 情境說明 */
         .section-title {
             font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
-            letter-spacing: 0.15em; color: #999; margin: 32px 0 12px 4px;
+            letter-spacing: 0.15em; color: #999; margin: 0 0 12px 4px;
         }
 
+        .scenario-list {
+            margin-bottom: 36px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .scenario-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background: #fafafa;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 16px;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        .scenario-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: #000;
+            flex-shrink: 0;
+            margin-top: 7px;
+        }
+
+        /* 價值筆記 */
         .value-details { margin-bottom: 32px; }
-        
+
         details {
             background: #fafafa;
             border: 1px solid var(--border);
@@ -106,26 +183,31 @@
             line-height: 1.5;
         }
 
+        /* 工具 */
         .check-table {
             background: #fff; border: 1px solid #000; padding: 24px; border-radius: 16px; margin-bottom: 32px;
         }
         .check-table h2 { font-size: 1rem; font-weight: 600; margin-bottom: 16px; text-align: center; }
         .check-item { margin-bottom: 16px; font-size: 0.85rem; border-bottom: 1px dashed #eee; padding-bottom: 12px; }
-        .check-item:last-child { border-bottom: none; }
+        .check-item:last-child { border-bottom: none; margin-bottom: 0; }
         .check-item strong { display: block; margin-bottom: 4px; color: #d4a373; }
 
+        /* 次要連結 */
         .link-card {
             display: flex; align-items: center;
             padding: 18px; background: #fff;
             border: 1px solid var(--border);
             border-radius: 14px; text-decoration: none;
             color: inherit; margin-bottom: 12px;
+            transition: border-color 0.2s;
         }
+        .link-card:hover { border-color: #ccc; }
         .icon { font-size: 1.3rem; margin-right: 16px; width: 24px; text-align: center; }
         .content { flex: 1; }
         .content h3 { font-size: 0.95rem; font-weight: 600; }
         .content p { font-size: 0.8rem; color: var(--text-secondary); }
 
+        /* 分享 */
         .share-page-btn {
             display: block;
             width: 100%;
@@ -141,29 +223,62 @@
             text-align: center;
         }
 
-        .disclaimer { font-size: 0.7rem; color: #999; margin: 24px 8px; line-height: 1.5; font-style: italic; }
-        footer { margin-top: 60px; text-align: center; font-size: 0.7rem; color: #bbb; letter-spacing: 0.05em; padding-bottom: 40px; }
         .social-row { display: flex; justify-content: center; gap: 24px; margin-top: 32px; }
         .social-row a { color: #000; text-decoration: none; font-size: 0.85rem; font-weight: 500; border-bottom: 1px solid #ddd; }
+
+        footer { margin-top: 60px; text-align: center; font-size: 0.7rem; color: #bbb; letter-spacing: 0.05em; padding-bottom: 40px; }
     </style>
 </head>
 <body>
 
 <div class="container">
+
+    <!-- 頭部 -->
     <header class="header">
         <div class="avatar-circle">
             杰
             <img src="avatar.jpg" alt="Jayden" onerror="this.style.opacity='0'">
         </div>
         <h1>杰哥 Jayden</h1>
-        <p class="title">全球人壽區經理 ｜ 現代風險觀測者</p>
+        <p class="title">以前在講台教國語文，現在在壽險業幫大家講白話</p>
     </header>
 
-    <div class="story-box">
-        以前在講台教國語文，現在在壽險業幫大家講白話。我深信，最好的風險規劃不應該是索取，而是「賦予讀者看清未來的能力」。
+    <!-- 主文案 + Line CTA -->
+    <div class="hero">
+        <h2>你不是不懂保險<br>你只是沒有人好好跟你說過</h2>
+        <p>不推銷、不催促<br>你說你的狀況，我幫你理清楚</p>
+        <a href="https://line.me/ti/p/tlWQNjThq9" target="_blank" class="cta-line">
+            <svg class="cta-line-icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+            </svg>
+            加我 Line，說說你的狀況
+        </a>
+        <div class="cta-sub">免費、不推銷，說完沒興趣也沒關係</div>
     </div>
 
-    <div class="section-title">價值筆記 (Deep Dive Stories)</div>
+    <!-- 情境說明 -->
+    <div class="section-title">你可以找我聊的事</div>
+    <div class="scenario-list">
+        <div class="scenario-item">
+            <div class="scenario-dot"></div>
+            <span>家人萬一不在了，剩下的人能撐多久——想算清楚</span>
+        </div>
+        <div class="scenario-item">
+            <div class="scenario-dot"></div>
+            <span>有保險但不知道夠不夠，想請人幫忙看一眼</span>
+        </div>
+        <div class="scenario-item">
+            <div class="scenario-dot"></div>
+            <span>有土地或房產，擔心以後怎麼傳、要繳多少稅</span>
+        </div>
+        <div class="scenario-item">
+            <div class="scenario-dot"></div>
+            <span>保障都掛在公司團保，但不確定那算不算真的有保障</span>
+        </div>
+    </div>
+
+    <!-- 價值筆記 -->
+    <div class="section-title">價值筆記</div>
     <div class="value-details">
         <details>
             <summary>📜 傳承筆記：1,690 萬與「被養大的心」</summary>
@@ -196,7 +311,8 @@
         </details>
     </div>
 
-    <div class="section-title">工具 (Tools)</div>
+    <!-- 工具 -->
+    <div class="section-title">工具</div>
     <div class="check-table">
         <h2>🛡️ 三分鐘保障邏輯校對</h2>
         <div class="check-item">
@@ -213,24 +329,17 @@
         </div>
     </div>
 
-    <div class="section-title">深度內容 (Deep Reading)</div>
+    <!-- 深度內容 -->
+    <div class="section-title">深度內容</div>
     <a href="https://substack.com/@xinjay12" target="_blank" class="link-card">
         <div class="icon">📖</div>
         <div class="content">
             <h3>杰哥的風險筆記</h3>
-            <p>每週三分鐘，升級你的風險抗性與邏輯</p>
+            <p>每週一篇，白話說清楚你沒想到的風險</p>
         </div>
     </a>
 
-    <div class="section-title">如果你想聊聊邏輯 (Connect)</div>
-    <a href="https://line.me/ti/p/tlWQNjThq9" target="_blank" class="link-card">
-        <div class="icon">🔍</div>
-        <div class="content">
-            <h3>保障地圖的白話翻譯</h3>
-            <p>陪你讀懂保單，校對出你沒看到的缺口</p>
-        </div>
-    </a>
-
+    <!-- 分享 -->
     <button id="shareBtn" class="share-page-btn">🔗 分享此頁面給好友</button>
 
     <div class="social-row">
@@ -240,7 +349,7 @@
     </div>
 
     <footer>
-        © 2026 JAYDEN RISK NOTES. <br>
+        © 2026 JAYDEN RISK NOTES.<br>
         Sincere. Empathetic. Logical. Flexible.
     </footer>
 </div>
@@ -251,7 +360,7 @@
         if (navigator.share) {
             try {
                 await navigator.share({
-                    title: '杰哥 Jayden ｜ 你的風險觀測隊友',
+                    title: '杰哥 Jayden ｜ 風險規劃顧問',
                     text: '這是我為你準備的風險筆記與保障校對工具',
                     url: window.location.href
                 });
@@ -267,6 +376,5 @@
         }
     });
 </script>
-
 </body>
 </html>
